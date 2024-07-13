@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            height: 200px;
+            width: 200px;
+            border: 1px solid black;
+            border-radius: 10px;
+            float: left;
+            margin: 10px;
+        }
+        img{
+            height: 100%;
+            width: 100%;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" draggable="true">
+        <img src="../Task/images/img1.jpg" alt="">
+    </div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <script>
+        const divs = document.querySelectorAll(".box");
+        const img = document.querySelector("img");
+        divs.forEach((div) => {
+            // div.addEventListener("click",()=>div.style.background="yellow");
+            div.addEventListener("dragover",(e)=>e.preventDefault());
+            div.addEventListener("drop",()=>div.appendChild(img));
+        });
+    </script>
+</body>
+</html>
